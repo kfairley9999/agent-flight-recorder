@@ -1,0 +1,76 @@
+{
+  "name": "agent-flight-recorder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Flight recorder for multi-agent systems: record, redact, replay, and diff traces of agent messages, tool calls, and decisions.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Kevin Fairley",
+  "homepage": "https://kfairy9999.github.io/agent-flight-recorder/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kfairy9999/agent-flight-recorder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kfairy9999/agent-flight-recorder/issues"
+  },
+  "keywords": [
+    "agents",
+    "multi-agent",
+    "observability",
+    "opentelemetry",
+    "replay",
+    "audit",
+    "tracing",
+    "mcp"
+  ],
+  "engines": {
+    "node": ">=22.13"
+  },
+  "bin": {
+    "afr": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "viewer",
+    "README.md",
+    "LICENSE",
+    "DESIGN.md",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "demo": "tsx examples/research-desk.ts",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "view": "tsx src/cli.ts view"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vitest": "^3.2.4"
+  }
+}

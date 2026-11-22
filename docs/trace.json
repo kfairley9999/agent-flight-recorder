@@ -1,0 +1,928 @@
+{
+  "schemaVersion": "0.1.0",
+  "resource": {
+    "attributes": {
+      "service.name": "research-desk",
+      "telemetry.sdk.name": "agent-flight-recorder",
+      "telemetry.sdk.language": "typescript",
+      "telemetry.sdk.version": "0.1.0",
+      "service.version": "0.1.0"
+    }
+  },
+  "run": {
+    "id": "28e5e8165f727141b6c0777102bd5eef",
+    "name": "open-source-agent-evals-brief",
+    "startedAt": "2026-11-22T06:13:42.943Z",
+    "endedAt": "2026-11-22T06:13:42.945Z",
+    "status": "OK"
+  },
+  "spans": [
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "5518a1f9e0a7519a",
+      "name": "run:open-source-agent-evals-brief",
+      "kind": "internal",
+      "startTimeUnixNano": "1795328022943520618",
+      "endTimeUnixNano": "1795328022945792219",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "run",
+        "afr.step.index": 0
+      },
+      "events": [],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "20fe0b098cba2eb2",
+      "parentSpanId": "5518a1f9e0a7519a",
+      "name": "agent:planner",
+      "kind": "internal",
+      "startTimeUnixNano": "1795328022943676828",
+      "endTimeUnixNano": "1795328022944492055",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "agent",
+        "afr.agent.id": "planner",
+        "afr.agent.role": "planner",
+        "afr.step.index": 1
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022943712254",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "You plan research briefs for a small evaluation team. Return a JSON plan."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022943802797",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Please write a short brief on recent open-source work in agent evaluation, especially multi-agent reliability. If you need me, call [REDACTED:phone] or [REDACTED:email]."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944228340",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "{\"goal\":\"Brief on open-source agent evaluation, with emphasis on multi-agent reliability.\",\"queries\":[\"multi-agent evaluation handoff failures\",\"trace-level evals for tool-using agents\"]}"
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "ffb4be203e66cb87",
+      "parentSpanId": "20fe0b098cba2eb2",
+      "name": "llm:scripted-planner",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022944116894",
+      "endTimeUnixNano": "1795328022944334039",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "llm",
+        "gen_ai.request.model": "scripted-planner",
+        "gen_ai.system": "demo",
+        "afr.agent.id": "planner",
+        "afr.agent.role": "planner",
+        "afr.step.index": 2,
+        "gen_ai.response.output": "{\"goal\":\"Brief on open-source agent evaluation, with emphasis on multi-agent reliability.\",\"queries\":[\"multi-agent evaluation handoff failures\",\"trace-level evals for tool-using agents\"]}",
+        "afr.output.hash": "07c2c8df",
+        "gen_ai.response.finish_reason": "stop"
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944150838",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "You plan research briefs for a small evaluation team. Return a JSON plan."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944156725",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Please write a short brief on recent open-source work in agent evaluation, especially multi-agent reliability. If you need me, call [REDACTED:phone] or [REDACTED:email]."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944208510",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "{\"goal\":\"Brief on open-source agent evaluation, with emphasis on multi-agent reliability.\",\"queries\":[\"multi-agent evaluation handoff failures\",\"trace-level evals for tool-using agents\"]}"
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "9593174086e5e5ee",
+      "parentSpanId": "20fe0b098cba2eb2",
+      "name": "decision:delegate",
+      "kind": "internal",
+      "startTimeUnixNano": "1795328022944448401",
+      "endTimeUnixNano": "1795328022944480440",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "decision",
+        "afr.decision.type": "delegate",
+        "afr.decision.summary": "Hand the queries to the researcher, then write and review a brief.",
+        "afr.decision.data": "{\"next\":\"researcher\"}",
+        "afr.agent.id": "planner",
+        "afr.step.index": 3
+      },
+      "events": [
+        {
+          "name": "afr.decision",
+          "timeUnixNano": "1795328022944472994",
+          "attributes": {
+            "afr.decision.type": "delegate",
+            "afr.decision.summary": "Hand the queries to the researcher, then write and review a brief."
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "5038dc5c0681537f",
+      "parentSpanId": "5518a1f9e0a7519a",
+      "name": "agent:researcher",
+      "kind": "internal",
+      "startTimeUnixNano": "1795328022944499143",
+      "endTimeUnixNano": "1795328022945449477",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "agent",
+        "afr.agent.id": "researcher",
+        "afr.agent.role": "researcher",
+        "afr.step.index": 4
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944564464",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "You research papers using the catalog tools and write concise notes."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944568103",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Investigate multi-agent evaluation and trace-level evals. Use the catalog."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944748904",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "I will search the catalog and fetch the top papers."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945042212",
+          "attributes": {
+            "afr.message.role": "tool",
+            "afr.message.content": "{\"query\":\"Investigate multi-agent evaluation and trace-level evals. Use the catalog.\",\"hits\":[{\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"year\":2026,\"venue\":\"Workshop on Agent Reliability\"},{\"title\":\"Trace-Level Evals for Tool-Using Agents\",\"year\":2025,\"venue\":\"Findings of EMNLP\"},{\"title\":\"Least Privilege for Tool-Calling Agents\",\"year\":2026,\"venue\":\"Preprint\"}]}",
+            "afr.message.tool_call_id": "c1",
+            "afr.message.name": "catalog_search"
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945108098",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Fetching the first paper abstract."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945207332",
+          "attributes": {
+            "afr.message.role": "tool",
+            "afr.message.content": "{\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"year\":2026,\"venue\":\"Workshop on Agent Reliability\",\"summary\":\"Defines a handoff-failure rate for multi-agent runs and shows most errors start at the planner-to-researcher boundary.\"}",
+            "afr.message.tool_call_id": "c2",
+            "afr.message.name": "fetch_abstract"
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945374099",
+          "attributes": {
+            "afr.message.role": "tool",
+            "afr.message.content": "Abstract not found: Missing Paper That Should 404",
+            "afr.message.tool_call_id": "c3",
+            "afr.message.name": "fetch_abstract"
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945428668",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Notes: (1) Handoff failures dominate multi-agent error budgets. (2) Trace-level evals catch tool-loop regressions that single-turn scores miss. (3) Least-privilege tool firewalls are a practical mitigation."
+          }
+        }
+      ],
+      "links": [
+        {
+          "traceId": "28e5e8165f727141b6c0777102bd5eef",
+          "spanId": "20fe0b098cba2eb2",
+          "attributes": {
+            "afr.link.type": "handoff"
+          }
+        }
+      ]
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "0abb1db7f4851d70",
+      "parentSpanId": "5038dc5c0681537f",
+      "name": "llm:scripted-researcher",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022944646571",
+      "endTimeUnixNano": "1795328022944765722",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "llm",
+        "gen_ai.request.model": "scripted-researcher",
+        "gen_ai.system": "demo",
+        "afr.agent.id": "researcher",
+        "afr.agent.role": "researcher",
+        "afr.step.index": 5,
+        "gen_ai.response.output": "I will search the catalog and fetch the top papers.",
+        "afr.output.hash": "e509a71e",
+        "gen_ai.response.finish_reason": "tool_calls"
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944662962",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "You research papers using the catalog tools and write concise notes."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944667477",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Investigate multi-agent evaluation and trace-level evals. Use the catalog."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022944744921",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "I will search the catalog and fetch the top papers."
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "c4e981d3e15b0144",
+      "parentSpanId": "5038dc5c0681537f",
+      "name": "catalog_search",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022944853708",
+      "endTimeUnixNano": "1795328022945022918",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "tool",
+        "afr.tool.name": "catalog_search",
+        "afr.tool.call_id": "c1",
+        "afr.tool.arguments": "{\"q\":\"Investigate multi-agent evaluation and trace-level evals. Use the catalog.\"}",
+        "afr.argument.hash": "ab1216b7",
+        "afr.agent.id": "researcher",
+        "afr.agent.role": "researcher",
+        "afr.step.index": 6,
+        "afr.tool.result": "{\"hits\":[{\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"venue\":\"Workshop on Agent Reliability\",\"year\":2026},{\"title\":\"Trace-Level Evals for Tool-Using Agents\",\"venue\":\"Findings of EMNLP\",\"year\":2025},{\"title\":\"Least Privilege for Tool-Calling Agents\",\"venue\":\"Preprint\",\"year\":2026}],\"query\":\"Investigate multi-agent evaluation and trace-level evals. Use the catalog.\"}",
+        "afr.output.hash": "90642c34"
+      },
+      "events": [
+        {
+          "name": "afr.tool.result",
+          "timeUnixNano": "1795328022945020433",
+          "attributes": {
+            "afr.tool.result": "{\"hits\":[{\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"venue\":\"Workshop on Agent Reliability\",\"year\":2026},{\"title\":\"Trace-Level Evals for Tool-Using Agents\",\"venue\":\"Findings of EMNLP\",\"year\":2025},{\"title\":\"Least Privilege for Tool-Calling Agents\",\"venue\":\"Preprint\",\"year\":2026}],\"query\":\"Investigate multi-agent evaluation and trace-level evals. Use the catalog.\"}"
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "dd40cedf9d261adf",
+      "parentSpanId": "5038dc5c0681537f",
+      "name": "llm:scripted-researcher",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022945056621",
+      "endTimeUnixNano": "1795328022945116941",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "llm",
+        "gen_ai.request.model": "scripted-researcher",
+        "gen_ai.system": "demo",
+        "afr.agent.id": "researcher",
+        "afr.agent.role": "researcher",
+        "afr.step.index": 7,
+        "gen_ai.response.output": "Fetching the first paper abstract.",
+        "afr.output.hash": "2d08e092",
+        "gen_ai.response.finish_reason": "tool_calls"
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945074457",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "You research papers using the catalog tools and write concise notes."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945077286",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Investigate multi-agent evaluation and trace-level evals. Use the catalog."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945082172",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "I will search the catalog and fetch the top papers."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945084908",
+          "attributes": {
+            "afr.message.role": "tool",
+            "afr.message.content": "{\"query\":\"Investigate multi-agent evaluation and trace-level evals. Use the catalog.\",\"hits\":[{\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"year\":2026,\"venue\":\"Workshop on Agent Reliability\"},{\"title\":\"Trace-Level Evals for Tool-Using Agents\",\"year\":2025,\"venue\":\"Findings of EMNLP\"},{\"title\":\"Least Privilege for Tool-Calling Agents\",\"year\":2026,\"venue\":\"Preprint\"}]}",
+            "afr.message.tool_call_id": "c1",
+            "afr.message.name": "catalog_search"
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945105759",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Fetching the first paper abstract."
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "6d38355bd92f8d6d",
+      "parentSpanId": "5038dc5c0681537f",
+      "name": "fetch_abstract",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022945132954",
+      "endTimeUnixNano": "1795328022945203454",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "tool",
+        "afr.tool.name": "fetch_abstract",
+        "afr.tool.call_id": "c2",
+        "afr.tool.arguments": "{\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\"}",
+        "afr.argument.hash": "905bdb43",
+        "afr.agent.id": "researcher",
+        "afr.agent.role": "researcher",
+        "afr.step.index": 8,
+        "afr.tool.result": "{\"summary\":\"Defines a handoff-failure rate for multi-agent runs and shows most errors start at the planner-to-researcher boundary.\",\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"venue\":\"Workshop on Agent Reliability\",\"year\":2026}",
+        "afr.output.hash": "5482f696"
+      },
+      "events": [
+        {
+          "name": "afr.tool.result",
+          "timeUnixNano": "1795328022945201587",
+          "attributes": {
+            "afr.tool.result": "{\"summary\":\"Defines a handoff-failure rate for multi-agent runs and shows most errors start at the planner-to-researcher boundary.\",\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"venue\":\"Workshop on Agent Reliability\",\"year\":2026}"
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "3b5641f3e39c6bb1",
+      "parentSpanId": "5038dc5c0681537f",
+      "name": "fetch_abstract",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022945262398",
+      "endTimeUnixNano": "1795328022945369962",
+      "status": {
+        "code": "ERROR",
+        "message": "Abstract not found: Missing Paper That Should 404"
+      },
+      "attributes": {
+        "afr.span.type": "tool",
+        "afr.tool.name": "fetch_abstract",
+        "afr.tool.call_id": "c3",
+        "afr.tool.arguments": "{\"title\":\"Missing Paper That Should 404\"}",
+        "afr.argument.hash": "fecba8cf",
+        "afr.agent.id": "researcher",
+        "afr.agent.role": "researcher",
+        "afr.step.index": 9
+      },
+      "events": [
+        {
+          "name": "exception",
+          "timeUnixNano": "1795328022945317452",
+          "attributes": {
+            "exception.type": "Error",
+            "exception.message": "Abstract not found: Missing Paper That Should 404"
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "4200782542db0501",
+      "parentSpanId": "5038dc5c0681537f",
+      "name": "llm:scripted-researcher",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022945384306",
+      "endTimeUnixNano": "1795328022945445652",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "llm",
+        "gen_ai.request.model": "scripted-researcher",
+        "gen_ai.system": "demo",
+        "afr.agent.id": "researcher",
+        "afr.agent.role": "researcher",
+        "afr.step.index": 10,
+        "gen_ai.response.output": "Notes: (1) Handoff failures dominate multi-agent error budgets. (2) Trace-level evals catch tool-loop regressions that single-turn scores miss. (3) Least-privilege tool firewalls are a practical mitigation.",
+        "afr.output.hash": "766d259c",
+        "gen_ai.response.finish_reason": "stop"
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945398777",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "You research papers using the catalog tools and write concise notes."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945401151",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Investigate multi-agent evaluation and trace-level evals. Use the catalog."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945402785",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "I will search the catalog and fetch the top papers."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945403982",
+          "attributes": {
+            "afr.message.role": "tool",
+            "afr.message.content": "{\"query\":\"Investigate multi-agent evaluation and trace-level evals. Use the catalog.\",\"hits\":[{\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"year\":2026,\"venue\":\"Workshop on Agent Reliability\"},{\"title\":\"Trace-Level Evals for Tool-Using Agents\",\"year\":2025,\"venue\":\"Findings of EMNLP\"},{\"title\":\"Least Privilege for Tool-Calling Agents\",\"year\":2026,\"venue\":\"Preprint\"}]}",
+            "afr.message.tool_call_id": "c1",
+            "afr.message.name": "catalog_search"
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945405684",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Fetching the first paper abstract."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945406766",
+          "attributes": {
+            "afr.message.role": "tool",
+            "afr.message.content": "{\"title\":\"When Agent Teams Drift: Measuring Handoff Failures\",\"year\":2026,\"venue\":\"Workshop on Agent Reliability\",\"summary\":\"Defines a handoff-failure rate for multi-agent runs and shows most errors start at the planner-to-researcher boundary.\"}",
+            "afr.message.tool_call_id": "c2",
+            "afr.message.name": "fetch_abstract"
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945408748",
+          "attributes": {
+            "afr.message.role": "tool",
+            "afr.message.content": "Abstract not found: Missing Paper That Should 404",
+            "afr.message.tool_call_id": "c3",
+            "afr.message.name": "fetch_abstract"
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945426891",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Notes: (1) Handoff failures dominate multi-agent error budgets. (2) Trace-level evals catch tool-loop regressions that single-turn scores miss. (3) Least-privilege tool firewalls are a practical mitigation."
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "fade6cfcfe44db1e",
+      "parentSpanId": "5518a1f9e0a7519a",
+      "name": "agent:writer",
+      "kind": "internal",
+      "startTimeUnixNano": "1795328022945458143",
+      "endTimeUnixNano": "1795328022945570550",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "agent",
+        "afr.agent.id": "writer",
+        "afr.agent.role": "writer",
+        "afr.step.index": 11
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945471597",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "Write a tight technical brief from the researcher notes."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945473398",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Draft a one-paragraph brief. You may include a contact line."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945542846",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Draft v1: Multi-agent systems fail most often at handoffs, not inside a single model call. Teams should record traces, grade them at span level, and restrict tools by default. Contact: [REDACTED:email]."
+          }
+        }
+      ],
+      "links": [
+        {
+          "traceId": "28e5e8165f727141b6c0777102bd5eef",
+          "spanId": "5038dc5c0681537f",
+          "attributes": {
+            "afr.link.type": "uses_result"
+          }
+        }
+      ]
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "4d5b08f1eebbc29d",
+      "parentSpanId": "fade6cfcfe44db1e",
+      "name": "llm:scripted-writer",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022945517649",
+      "endTimeUnixNano": "1795328022945562777",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "llm",
+        "gen_ai.request.model": "scripted-writer",
+        "gen_ai.system": "demo",
+        "afr.agent.id": "writer",
+        "afr.agent.role": "writer",
+        "afr.step.index": 12,
+        "gen_ai.response.output": "Draft v1: Multi-agent systems fail most often at handoffs, not inside a single model call. Teams should record traces, grade them at span level, and restrict tools by default. Contact: [REDACTED:email].",
+        "afr.output.hash": "212f7ad9",
+        "gen_ai.response.finish_reason": "stop"
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945524836",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "Write a tight technical brief from the researcher notes."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945526556",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Draft a one-paragraph brief. You may include a contact line."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945541122",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Draft v1: Multi-agent systems fail most often at handoffs, not inside a single model call. Teams should record traces, grade them at span level, and restrict tools by default. Contact: [REDACTED:email]."
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "5e93592722b75b14",
+      "parentSpanId": "5518a1f9e0a7519a",
+      "name": "agent:critic",
+      "kind": "internal",
+      "startTimeUnixNano": "1795328022945577351",
+      "endTimeUnixNano": "1795328022945669939",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "agent",
+        "afr.agent.id": "critic",
+        "afr.agent.role": "critic",
+        "afr.step.index": 13
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945586917",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "Review the draft for accuracy and for leaked personal data."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945588987",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Review draft v1 and decide whether to accept or revise."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945637671",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "The draft leaks a contact email and should not end on a personal address. Request a revision that keeps the technical claims and drops the contact line."
+          }
+        }
+      ],
+      "links": [
+        {
+          "traceId": "28e5e8165f727141b6c0777102bd5eef",
+          "spanId": "fade6cfcfe44db1e",
+          "attributes": {
+            "afr.link.type": "handoff"
+          }
+        }
+      ]
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "d0b386d5773e4965",
+      "parentSpanId": "5e93592722b75b14",
+      "name": "llm:scripted-critic",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022945613222",
+      "endTimeUnixNano": "1795328022945642786",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "llm",
+        "gen_ai.request.model": "scripted-critic",
+        "gen_ai.system": "demo",
+        "afr.agent.id": "critic",
+        "afr.agent.role": "critic",
+        "afr.step.index": 14,
+        "gen_ai.response.output": "The draft leaks a contact email and should not end on a personal address. Request a revision that keeps the technical claims and drops the contact line.",
+        "afr.output.hash": "a951a90f",
+        "gen_ai.response.finish_reason": "stop"
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945620028",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "Review the draft for accuracy and for leaked personal data."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945621555",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Review draft v1 and decide whether to accept or revise."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945635612",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "The draft leaks a contact email and should not end on a personal address. Request a revision that keeps the technical claims and drops the contact line."
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "cb1b03063f64aebc",
+      "parentSpanId": "5e93592722b75b14",
+      "name": "decision:request_revision",
+      "kind": "internal",
+      "startTimeUnixNano": "1795328022945659222",
+      "endTimeUnixNano": "1795328022945667997",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "decision",
+        "afr.decision.type": "request_revision",
+        "afr.decision.summary": "Drop the contact email and keep the technical claims.",
+        "afr.decision.data": "{\"attempt\":2}",
+        "afr.agent.id": "critic",
+        "afr.step.index": 15
+      },
+      "events": [
+        {
+          "name": "afr.decision",
+          "timeUnixNano": "1795328022945666553",
+          "attributes": {
+            "afr.decision.type": "request_revision",
+            "afr.decision.summary": "Drop the contact email and keep the technical claims."
+          }
+        }
+      ],
+      "links": []
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "eb761559c14b39b7",
+      "parentSpanId": "5518a1f9e0a7519a",
+      "name": "agent:writer:revision",
+      "kind": "internal",
+      "startTimeUnixNano": "1795328022945677688",
+      "endTimeUnixNano": "1795328022945757523",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "agent",
+        "afr.agent.id": "writer",
+        "afr.agent.role": "writer",
+        "afr.agent.attempt": 2,
+        "afr.step.index": 16
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945690722",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "Revise the brief. Do not include personal contact information."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945692441",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Please produce draft v2 without a contact line."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945748847",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Draft v2: Multi-agent systems fail most often at handoffs, not inside a single model call. Record every message, tool call, and decision; grade runs at span level; and give each agent least-privilege tool access. (Contact redacted in the stored trace.)"
+          }
+        }
+      ],
+      "links": [
+        {
+          "traceId": "28e5e8165f727141b6c0777102bd5eef",
+          "spanId": "5e93592722b75b14",
+          "attributes": {
+            "afr.link.type": "caused_by"
+          }
+        }
+      ]
+    },
+    {
+      "traceId": "28e5e8165f727141b6c0777102bd5eef",
+      "spanId": "5e566e75902eb81e",
+      "parentSpanId": "eb761559c14b39b7",
+      "name": "llm:scripted-writer",
+      "kind": "client",
+      "startTimeUnixNano": "1795328022945728114",
+      "endTimeUnixNano": "1795328022945755416",
+      "status": {
+        "code": "OK"
+      },
+      "attributes": {
+        "afr.span.type": "llm",
+        "gen_ai.request.model": "scripted-writer",
+        "gen_ai.system": "demo",
+        "afr.agent.id": "writer",
+        "afr.agent.role": "writer",
+        "afr.step.index": 17,
+        "gen_ai.response.output": "Draft v2: Multi-agent systems fail most often at handoffs, not inside a single model call. Record every message, tool call, and decision; grade runs at span level; and give each agent least-privilege tool access. (Contact redacted in the stored trace.)",
+        "afr.output.hash": "efce9069",
+        "gen_ai.response.finish_reason": "stop"
+      },
+      "events": [
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945736724",
+          "attributes": {
+            "afr.message.role": "system",
+            "afr.message.content": "Revise the brief. Do not include personal contact information."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945739171",
+          "attributes": {
+            "afr.message.role": "user",
+            "afr.message.content": "Please produce draft v2 without a contact line."
+          }
+        },
+        {
+          "name": "afr.message",
+          "timeUnixNano": "1795328022945747027",
+          "attributes": {
+            "afr.message.role": "assistant",
+            "afr.message.content": "Draft v2: Multi-agent systems fail most often at handoffs, not inside a single model call. Record every message, tool call, and decision; grade runs at span level; and give each agent least-privilege tool access. (Contact redacted in the stored trace.)"
+          }
+        }
+      ],
+      "links": []
+    }
+  ],
+  "redaction": {
+    "applied": true,
+    "rulesTriggered": [
+      "email",
+      "phone_us"
+    ],
+    "redactedCount": 7
+  }
+}

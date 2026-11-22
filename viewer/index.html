@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agent Flight Recorder</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <div>
+          <strong>Agent Flight Recorder</strong>
+          <div class="muted" id="run-sub">Load a trace to inspect a multi-agent run</div>
+        </div>
+      </div>
+      <div class="actions">
+        <label class="file-btn">
+          Open trace
+          <input id="file" type="file" accept="application/json,.json,.afr.json" />
+        </label>
+        <button id="demo-btn" type="button">Load demo</button>
+      </div>
+    </header>
+
+    <section class="meta" id="meta" hidden>
+      <div><span class="k">Run</span> <span id="meta-name">—</span></div>
+      <div><span class="k">Status</span> <span id="meta-status" class="pill">—</span></div>
+      <div><span class="k">Spans</span> <span id="meta-spans">—</span></div>
+      <div><span class="k">Agents</span> <span id="meta-agents">—</span></div>
+      <div><span class="k">Redaction</span> <span id="meta-redaction" class="pill">—</span></div>
+    </section>
+
+    <main class="layout">
+      <aside class="tree" id="tree" aria-label="Span tree">
+        <h2>Span tree</h2>
+        <ol id="tree-list"></ol>
+      </aside>
+      <section class="timeline-wrap">
+        <h2>Timeline</h2>
+        <div class="legend">
+          <span class="swatch agent"></span> agent <span class="swatch llm"></span> llm
+          <span class="swatch tool"></span> tool <span class="swatch decision"></span> decision
+          <span class="swatch error"></span> error
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+      <aside class="detail" id="detail" aria-label="Span detail">
+        <h2>Detail</h2>
+        <p class="muted" id="detail-empty">Select a span in the tree or timeline.</p>
+        <div id="detail-body" hidden></div>
+      </aside>
+    </main>
+
+    <footer>
+      <span>Local viewer · traces stay in your browser</span>
+      <a href="https://github.com/kfairy9999/agent-flight-recorder">GitHub</a>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
