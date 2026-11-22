@@ -1,5 +1,7 @@
 # Agent Flight Recorder
 
+> Archived: superseded by AgentReplay (https://github.com/kfairy9999/agentreplay).
+
 A **flight recorder** for multi-agent systems: record every message, tool call, model call, and decision in a run, **redact secrets and PII before storage**, **replay** a run from any step, and **diff** two runs to see where they diverged.
 
 Built by [Kevin Fairley](https://github.com/kfairy9999) (Provefirst, Los Angeles) as part of a public body of work on **autonomous multi-agent orchestration**. This repository is the audit and replay piece of that stack.
