@@ -6,13 +6,13 @@
   "type": "module",
   "license": "MIT",
   "author": "Kevin Fairley",
-  "homepage": "https://kfairy9999.github.io/agent-flight-recorder/",
+  "homepage": "https://kfairley9999.github.io/agent-flight-recorder/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kfairy9999/agent-flight-recorder.git"
+    "url": "git+https://github.com/kfairley9999/agent-flight-recorder.git"
   },
   "bugs": {
-    "url": "https://github.com/kfairy9999/agent-flight-recorder/issues"
+    "url": "https://github.com/kfairley9999/agent-flight-recorder/issues"
   },
   "keywords": [
     "agents",

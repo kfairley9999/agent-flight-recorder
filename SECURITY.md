@@ -4,7 +4,7 @@ Agent Flight Recorder is a local library that stores traces of agent runs. Those
 
 ## Reporting
 
-If you find a security issue in this repository, please open a [GitHub advisory](https://github.com/kfairy9999/agent-flight-recorder/security/advisories/new) or email the maintainer through the address on [github.com/kfairy9999](https://github.com/kfairy9999). Do not file a public issue with a live secret in it.
+If you find a security issue in this repository, please open a [GitHub advisory](https://github.com/kfairley9999/agent-flight-recorder/security/advisories/new) or email the maintainer through the address on [github.com/kfairley9999](https://github.com/kfairley9999). Do not file a public issue with a live secret in it.
 
 ## What is stored
 

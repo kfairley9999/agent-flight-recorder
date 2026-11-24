@@ -1,15 +1,15 @@
 # Agent Flight Recorder
 
-> Archived: superseded by AgentReplay (https://github.com/kfairy9999/agentreplay).
+> Archived: superseded by AgentReplay (https://github.com/kfairley9999/agentreplay).
 
 A **flight recorder** for multi-agent systems: record every message, tool call, model call, and decision in a run, **redact secrets and PII before storage**, **replay** a run from any step, and **diff** two runs to see where they diverged.
 
-Built by [Kevin Fairley](https://github.com/kfairy9999) (Provefirst, Los Angeles) as part of a public body of work on **autonomous multi-agent orchestration**. This repository is the audit and replay piece of that stack.
+Built by [Kevin Fairley](https://github.com/kfairley9999) (Provefirst, Los Angeles) as part of a public body of work on **autonomous multi-agent orchestration**. This repository is the audit and replay piece of that stack.
 
-[![CI](https://github.com/kfairy9999/agent-flight-recorder/actions/workflows/ci.yml/badge.svg)](https://github.com/kfairy9999/agent-flight-recorder/actions/workflows/ci.yml)
+[![CI](https://github.com/kfairley9999/agent-flight-recorder/actions/workflows/ci.yml/badge.svg)](https://github.com/kfairley9999/agent-flight-recorder/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Live viewer demo:** [kfairy9999.github.io/agent-flight-recorder](https://kfairy9999.github.io/agent-flight-recorder/)
+**Live viewer demo:** [kfairley9999.github.io/agent-flight-recorder](https://kfairley9999.github.io/agent-flight-recorder/)
 
 > This is a v0.1 library and CLI, not a hosted observability product. It does not claim OpenTelemetry certification, regulatory compliance, or that redaction is complete. See [Limitations](#limitations) and [SECURITY.md](SECURITY.md).
 
@@ -48,7 +48,7 @@ The on-disk format and the mapping to OTLP are described in [DESIGN.md](DESIGN.m
 Requires Node.js 22 or later. The package is not published to npm; clone it and use it from source.
 
 ```bash
-git clone https://github.com/kfairy9999/agent-flight-recorder.git
+git clone https://github.com/kfairley9999/agent-flight-recorder.git
 cd agent-flight-recorder
 npm install
 npm test
